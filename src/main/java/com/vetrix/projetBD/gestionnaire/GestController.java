@@ -35,4 +35,12 @@ public class GestController {
         service.deleteGest(id);
         return "delete";
     }
+
+    public boolean isActif(int id){
+        switch (service.getGest(id).getActif()){
+            case 0 : return false;
+            case 1 : return true;
+            default: return false;
+        }
+    }
 }

@@ -50,4 +50,18 @@ public class ProduitController {
     public void deletePro(@PathVariable int id){
         service.deleteProd(id);
     }
+
+
+    public List<Produit> getBySize(int typeSize, int size){return repository.getBySize(typeSize, size);}
+
+    public int getNombreBySize(int typeSize, int size){return (int) repository.countSize(typeSize, size); }
+
+    public boolean isOnProm(int id){
+        switch (service.getProduit(id).getPromo()){
+            case 0: return false;
+            case 1: return true;
+            default: return false;
+        }
+    }
+
 }
